@@ -1,35 +1,33 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
+  <meta charset="UTF-8" />
   <title>NICBUZZinc | Bold, Buzzing Flavor</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="icon" type="image/png" href="images/logo.png">
-
-  <!-- SimpleCart.js (Free Cart System) -->
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/simplecart/3.0.6/simplecart.min.js"></script>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <link rel="icon" type="image/png" href="https://i.imgur.com/Uo3N69S.png" />
 
   <style>
     body {
-      font-family: 'Arial', sans-serif;
+      font-family: Arial, sans-serif;
       background: #fff9f2;
       color: #333;
       margin: 0;
       padding: 20px;
     }
-
     header {
       text-align: center;
       padding: 20px;
       background-color: #fff4d2;
       border-bottom: 2px solid #ddd;
     }
-
+    header img {
+      max-width: 150px;
+      margin-bottom: 10px;
+    }
     header h1 {
       margin: 0;
       font-size: 32px;
     }
-
     .store {
       display: flex;
       flex-wrap: wrap;
@@ -37,7 +35,6 @@
       justify-content: center;
       margin-top: 30px;
     }
-
     .product {
       background: #fff;
       border: 1px solid #ddd;
@@ -45,63 +42,129 @@
       text-align: center;
       width: 300px;
       box-shadow: 2px 2px 5px rgba(0,0,0,0.05);
+      border-radius: 8px;
     }
-
     .product img {
       width: 100%;
       height: auto;
       margin-bottom: 10px;
+      border-radius: 6px;
     }
-
-    .item_add {
+    .product h3 {
+      margin: 0 0 10px 0;
+      font-size: 22px;
+    }
+    .product p {
+      font-size: 18px;
+      font-weight: bold;
+      margin: 0 0 15px 0;
+    }
+    button.snipcart-add-item {
       background: #ffcc00;
       padding: 10px 15px;
-      display: inline-block;
-      text-decoration: none;
-      color: #000;
+      border: none;
       font-weight: bold;
-      margin-top: 10px;
+      cursor: pointer;
       border-radius: 5px;
+      transition: background-color 0.3s ease;
     }
-
-    .cart {
-      margin-top: 40px;
-      padding: 20px;
-      border-top: 2px solid #ccc;
+    button.snipcart-add-item:hover {
+      background: #e6b800;
     }
   </style>
 </head>
 <body>
 
-  <header>
-    <h1>NICBUZZinc</h1>
-    <p>Bold, Buzzing Flavor. Order now.</p>
-  </header>
+<header>
+  <img src="https://i.imgur.com/Uo3N69S.png" alt="NICBUZZinc Logo" />
+  <h1>NICBUZZinc</h1>
+  <p>Bold, Buzzing Flavor. Order now.</p>
+</header>
 
-  <div class="store">
+<div class="store">
 
-    <div class="product simpleCart_shelfItem">
-      <img src="https://via.placeholder.com/300x200?text=Coconut+Creme+Brulee" alt="Coconut Crème Brûlée">
-      <h3 class="item_name">Coconut Crème Brûlée</h3>
-      <p class="item_price">$10.00</p>
-      <a class="item_add" href="javascript:;">Add to Cart</a>
-    </div>
-
-    <div class="product simpleCart_shelfItem">
-      <img src="https://via.placeholder.com/300x200?text=California+Honey+Cherry+Ice" alt="California Honey Cherry Ice">
-      <h3 class="item_name">California Honey Cherry Ice</h3>
-      <p class="item_price">$13.00</p>
-      <a class="item_add" href="javascript:;">Add to Cart</a>
-    </div>
-
+  <div class="product">
+    <img src="https://cdn.pixabay.com/photo/2017/01/20/00/30/coconut-1995053_1280.jpg" alt="Coconut Crème Brûlée" />
+    <h3>Coconut Crème Brûlée</h3>
+    <p>$10.00</p>
+    <button
+      class="snipcart-add-item"
+      data-item-id="coconut-creme-brulee"
+      data-item-price="10.00"
+      data-item-url="https://yourwebsite.com"
+      data-item-name="Coconut Crème Brûlée"
+      data-item-description="Delicious coconut crème brûlée flavor"
+      data-item-image="https://cdn.pixabay.com/photo/2017/01/20/00/30/coconut-1995053_1280.jpg"
+    >
+      Add to Cart
+    </button>
   </div>
 
-  <div class="cart">
-    <h2>Your Cart</h2>
-    <div class="simpleCart_items"></div>
-    <p>Total: <span class="simpleCart_total"></span></p>
-    <a href="javascript:;" class="simpleCart_checkout">Checkout</a>
+  <div class="product">
+    <img src="https://cdn.pixabay.com/photo/2016/03/05/22/01/cherry-1239429_1280.jpg" alt="California Honey Cherry Ice" />
+    <h3>California Honey Cherry Ice</h3>
+    <p>$13.00</p>
+    <button
+      class="snipcart-add-item"
+      data-item-id="california-honey-cherry-ice"
+      data-item-price="13.00"
+      data-item-url="https://yourwebsite.com"
+      data-item-name="California Honey Cherry Ice"
+      data-item-description="Refreshing California honey cherry ice flavor"
+      data-item-image="https://cdn.pixabay.com/photo/2016/03/05/22/01/cherry-1239429_1280.jpg"
+    >
+      Add to Cart
+    </button>
   </div>
+
+</div>
+
+<!-- Snipcart container -->
+<div hidden id="snipcart" data-api-key="NzVkZjdjOWItMjc0Ni00NmVmLTkxNGItZTcyYzQ5NzQ5M2FkNjM4ODQ2ODk4NDU1NDg5MDIz"></div>
+
+<script>
+  window.SnipcartSettings = {
+    publicApiKey: 'NzVkZjdjOWItMjc0Ni00NmVmLTkxNGItZTcyYzQ5NzQ5M2FkNjM4ODQ2ODk4NDU1NDg5MDIz',
+    loadStrategy: 'on-user-interaction',
+  };
+
+  (() => {
+    var c, d;
+    (d = (c = window.SnipcartSettings).version) != null || (c.version = "3.0");
+    var s, S;
+    (S = (s = window.SnipcartSettings).timeoutDuration) != null || (s.timeoutDuration = 2750);
+    var l, p;
+    (p = (l = window.SnipcartSettings).domain) != null || (l.domain = "cdn.snipcart.com");
+    var w, u;
+    (u = (w = window.SnipcartSettings).protocol) != null || (w.protocol = "https");
+    var f = window.SnipcartSettings.version.includes("v3.0.0-ci") || window.SnipcartSettings.version != "3.0" && window.SnipcartSettings.version.localeCompare("3.4.0", void 0, {
+      numeric: !0,
+      sensitivity: "base"
+    }) === -1, m = ["focus", "mouseover", "touchmove", "scroll", "keydown"];
+    window.LoadSnipcart = o;
+    document.readyState === "loading" ? document.addEventListener("DOMContentLoaded", r) : r();
+
+    function r() {
+      window.SnipcartSettings.loadStrategy ? window.SnipcartSettings.loadStrategy === "on-user-interaction" && (m.forEach(t => document.addEventListener(t, o)), setTimeout(o, window.SnipcartSettings.timeoutDuration)) : o()
+    }
+
+    var a = !1;
+
+    function o() {
+      if (a) return;
+      a = !0;
+      let t = document.getElementsByTagName("head")[0],
+        e = document.querySelector("#snipcart"),
+        i = document.querySelector(`src[src^="${window.SnipcartSettings.protocol}://${window.SnipcartSettings.domain}"][src$="snipcart.js"]`),
+        n = document.querySelector(`link[href^="${window.SnipcartSettings.protocol}://${window.SnipcartSettings.domain}"][href$="snipcart.css"]`);
+      e || (e = document.createElement("div"), e.id = "snipcart", e.setAttribute("hidden", "true"), document.body.appendChild(e)), v(e), i || (i = document.createElement("script"), i.src = `${window.SnipcartSettings.protocol}://${window.SnipcartSettings.domain}/themes/v${window.SnipcartSettings.version}/default/snipcart.js`, i.async = !0, t.appendChild(i)), n || (n = document.createElement("link"), n.rel = "stylesheet", n.type = "text/css", n.href = `${window.SnipcartSettings.protocol}://${window.SnipcartSettings.domain}/themes/v${window.SnipcartSettings.version}/default/snipcart.css`, t.prepend(n)), m.forEach(g => document.removeEventListener(g, o))
+    }
+
+    function v(t) {
+      !f || (t.dataset.apiKey = window.SnipcartSettings.publicApiKey, window.SnipcartSettings.addProductBehavior && (t.dataset.configAddProductBehavior = window.SnipcartSettings.addProductBehavior), window.SnipcartSettings.modalStyle && (t.dataset.configModalStyle = window.SnipcartSettings.modalStyle), window.SnipcartSettings.currency && (t.dataset.currency = window.SnipcartSettings.currency), window.SnipcartSettings.templatesUrl && (t.dataset.templatesUrl = window.SnipcartSettings.templatesUrl))
+    }
+  })();
+</script>
 
 </body>
 </html>
